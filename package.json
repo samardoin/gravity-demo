@@ -1,0 +1,23 @@
+{
+  "name": "gravity-demo",
+  "version": "1.0.0",
+  "description": "Simple gravity demonstration.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samardoin/gravity-demo.git"
+  },
+  "author": "Sam Ardoin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samardoin/gravity-demo/issues"
+  },
+  "homepage": "https://github.com/samardoin/gravity-demo#readme",
+  "dependencies": {
+    "socket.io": "*",
+    "express": "*"
+  }
+}
