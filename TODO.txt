@@ -1,0 +1,6 @@
+* a) figure out why s (size) is not transferring over to the client
+* b) clean the code
+c) examine the fillStyle bug
+d) deploy to github
+
+e) remove disconnected players

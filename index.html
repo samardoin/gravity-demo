@@ -1,18 +1,39 @@
 <html>
   <header>
     <title>Template</title>
-    <!-- <canvas id="gameCanvas" width="400" height="400"></canvas><br> -->
+    <canvas id="gameCanvas" width="400" height="400"></canvas><br>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="/canvas.js"></script>
+    <script src="/renderer.js"></script>
+
   </header>
   <body>
     The server is up and running!
     <script>
-    var socket = io.connect();
+    var socket = io.connect();//connect socket to server
 
-    socket.on('connect',function(){
-      console.log(socket.id);
+    socket.on('connect',function(){//when the sever connects to the socket
+
+      //waite for window.onload (@ canvas.js) to complete
+      //then emmit 'connection_successful'
+      //'connection_successful' tells the server the client is ready to enter the game loop
+      async function loaded(){
+        var result = await function(){
+          while (loaded!=true){}//while loading do not move on
+        }
+        socket.emit('connection_successful');//emmit connection_successful
+      }
+      loaded();//start the async function
     });
+    //main game loop
+    //1) get info
+    //2) render
+    //3) send input
+    socket.on('game_loop',function(data){
+      if (data.length>0) renderAll(data);//render new info
 
+      //TODO send input
+    });
     </script>
   </body>
 </html>
